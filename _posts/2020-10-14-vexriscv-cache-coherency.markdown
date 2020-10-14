@@ -39,7 +39,7 @@ The *sync* stream carries the following signals
 
 # The connection from the cores to the data bus
 
-In SaxonSoc the cores are connected to the BMB bus [here]https://github.com/SpinalHDL/SaxonSoc/blob/01f44c3a93a43e78478db4b6a0922c5a552dc702/hardware/scala/saxon/VexRiscvClusterGenerator.scala#L54). The relevant piece of code is:
+In SaxonSoc the cores are connected to the BMB bus [here](https://github.com/SpinalHDL/SaxonSoc/blob/01f44c3a93a43e78478db4b6a0922c5a552dc702/hardware/scala/saxon/VexRiscvClusterGenerator.scala#L54). The relevant piece of code is:
 
 ```scala
     cores.produce(for(cpu <- cores.cpu) {
