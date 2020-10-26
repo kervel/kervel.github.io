@@ -62,8 +62,9 @@ This will happen as follows:
 * a bus master (eg a core) writes to a memory location
 * A *BmbInvalidateMonitor* sits on the bus, both as master and as slave, listening on the *rsp* stream for answers of write requests, and generates *inv* transactions from them.
 * the arbiter sends a *inv* request to all masters on the bus (with the information about the cache lines to be invalidated).
-* the bus masters are then supposed to invalidate their cache lines and respond with an *ack* signal. Note that the ack signal has no source transaction ID, as there can be no two concurrent inv transactions.
-* when the ack signal has been received from all masters, a *sync* transaction will be issued to the bus master that wrote to the memory location.
+* the bus masters are then supposed to invalidate their cache lines and respond with an *ack* signal. Note that the ack signal has no source transaction ID, as acks for multiple inv requests should never be received out of order.
+* when the BMB bus arbiter got acks from all masters, it will send an ack to the slaves. The *BmbInvalidateMonitor* listens as slave to the bus and receives the aggregated ack. 
+* when the ack signal has been received from all masters, a *sync* transaction will be issued to the bus master that wrote to the memory location. A queue of outstanding sync requests is kept by the *BmbInvalidateMonitor* to handle multiple in-flight inv requests.
 
 
 
