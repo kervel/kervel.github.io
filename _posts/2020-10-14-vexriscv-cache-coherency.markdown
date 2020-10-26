@@ -60,6 +60,7 @@ Since we are dealing with a write through cache, there is only one way a cache l
 This will happen as follows:
 
 * a bus master (eg a core) writes to a memory location
+* A *BmbInvalidateMonitor* sits on the bus, both as master and as slave, listening on the *rsp* stream for answers of write requests, and generates *inv* transactions from them.
 * the arbiter sends a *inv* request to all masters on the bus (with the information about the cache lines to be invalidated).
 * the bus masters are then supposed to invalidate their cache lines and respond with an *ack* signal. Note that the ack signal has no source transaction ID, as there can be no two concurrent inv transactions.
 * when the ack signal has been received from all masters, a *sync* transaction will be issued to the bus master that wrote to the memory location.
@@ -82,4 +83,3 @@ In SaxonSoc the cores are connected to the BMB bus [here](https://github.com/Spi
 ```
 
 Here, all cores are connected to the same data bus, `dBusCoherent`. Note that the *produce* syntax is used here which is part of the [generator framework](https://spinalhdl.github.io/SpinalDoc-RTD/SpinalHDL/Libraries/generator.html). Basically, the variable `cores` here is not a list of cores but a list of core *handles*. Handles are basically area's that will become available at some point. The scala code block inside the `produce` call will then only be called when the `cores` structure has been generated.
-
