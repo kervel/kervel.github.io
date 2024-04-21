@@ -17,7 +17,7 @@ I needed a way to show lots of vector data on an esri javascript map. The data c
 
 I decided to go with the mapbox vector tiles. Esri documentation only supports the cases where the vector tiles are served by an ESRI web service, so i had some trouble figuring out how to get ESRI to load with the mapbox vector tiles.
 
-I used [https://github.com/submarcos/django-vectortiles](Django-vectortiles) to generate the vectortiles, which was relatively straightforward. It creates an endpoint for tiles that is of syntax `tiles/{z}/{x}/{y}`. Using django was easy as the rest of my application is also written in django, but the django part is actually rather trivial. MVT tiles can be generated for a certain zoom/x/y directly from postgis (no need for django), for instance as documented [https://gis.stackexchange.com/questions/360197/using-st-asmvt-with-st-tileenvelope-clipping-in-mapbox](here).
+I used [django-vectortiles](https://github.com/submarcos/django-vectortiles) to generate the vectortiles, which was relatively straightforward. It creates an endpoint for tiles that is of syntax `tiles/{z}/{x}/{y}`. Using django was easy as the rest of my application is also written in django, but the django part is actually rather trivial. MVT tiles can be generated for a certain zoom/x/y directly from postgis (no need for django), for instance as documented [https://gis.stackexchange.com/questions/360197/using-st-asmvt-with-st-tileenvelope-clipping-in-mapbox](here).
 
 While this is already enough to load the vector tiles in an mapbox, or openlayers, or ..., it ain't for esri. Esri needs a metadata json that describes the zoom levels.
 
