@@ -23,8 +23,8 @@ While this is already enough to load the vector tiles in an mapbox, or openlayer
 
 I found a bit of documentation:
 
-* Esri has a web page on the vector tile services which lists an example of the json metadata [https://developers.arcgis.com/rest/services-reference/enterprise/vector-tile-service.htm](here)
-* [https://gis.stackexchange.com/questions/323178/how-to-add-geoserver-vector-tiles-in-arcgis-using-arcgis-js-api](This) stack overflow post shows how to add geoserver vector tiles in arcgis, it uses a tile schema (tms), but i wanted to restrict zoom levels, so i had to generate my own metadata.
+* Esri has a web page on the vector tile services which lists an example of the json metadata [here](https://developers.arcgis.com/rest/services-reference/enterprise/vector-tile-service.htm)
+* [This](https://gis.stackexchange.com/questions/323178/how-to-add-geoserver-vector-tiles-in-arcgis-using-arcgis-js-api) stack overflow post shows how to add geoserver vector tiles in arcgis, it uses a tile schema (tms), but i wanted to restrict zoom levels, so i had to generate my own metadata.
 
 # The code
 
