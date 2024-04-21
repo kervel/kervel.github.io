@@ -94,7 +94,7 @@ As you can see in the snippet below, the rest of the metadata is rather straight
             })
 
         # now for the rest of the json.
-        json = {
+        jsonresponse = {
             "currentVersion":11.2,
             "name":"mvt",
             "capabilities":"TilesOnly",
@@ -106,7 +106,6 @@ As you can see in the snippet below, the rest of the metadata is rather straight
             "exportTilesAllowed":False,
             "maxExportTilesCount":100000,
             "isEnabled":True,
-            "exportTilesAllowed":False,
             "minScale":295828763.795777,
             "maxScale":0, #https://developers.arcgis.com/javascript/latest/visualization/high-density-data/scale-range/
             "maxZoom":19,
@@ -121,7 +120,7 @@ As you can see in the snippet below, the rest of the metadata is rather straight
                 "lods":lod_data},
                 "resourceInfo":{"styleVersion":8,
                                 "cacheInfo":{"storageInfo":{"packetSize":128,"storageFormat":"compactV2"}}}}
-        return Response(json)
+        return Response(jsonresponse)
 ```
 
 Some of the keys in the json i just copied from the example (for instance resourceInfo). I didn't fully investigate what they mean.
